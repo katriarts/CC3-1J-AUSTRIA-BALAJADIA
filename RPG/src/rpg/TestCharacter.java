@@ -28,7 +28,7 @@ public class TestCharacter {
             piolo.heal(1);
             System.out.println("\n");
                        
-            System.out.println(" ");
+            //System.out.println(" ");
             if(kathy.getCurrentLife() <= 0){
                 System.out.println(piolo.getName() + " wins!");
                 break;
