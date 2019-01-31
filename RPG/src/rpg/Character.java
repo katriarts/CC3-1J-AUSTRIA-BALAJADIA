@@ -111,8 +111,5 @@ public class Character {
         this.maxLife = maxLife;
     }
     
-    //print
-    public void print(){
-        System.out.println("Name: " + name);
-    }
+    
 }
