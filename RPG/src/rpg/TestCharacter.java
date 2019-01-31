@@ -20,15 +20,16 @@ public class TestCharacter {
             piolo.wound(kAttack);
             kathy.wound(pAttack);
             
-            System.out.print("Kathy was healed for");
+            /*System.out.print("Kathy was healed for");
             kathy.heal(1);
             System.out.println(" ");
             
             System.out.print("Piolo was healed for");
             piolo.heal(1);
             System.out.println("\n");
-                       
-            //System.out.println(" ");
+            */           
+            
+            System.out.println(" ");
             if(kathy.getCurrentLife() <= 0){
                 System.out.println(piolo.getName() + " wins!");
                 break;
