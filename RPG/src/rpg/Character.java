@@ -51,15 +51,15 @@ public class Character {
     currentlife cannot be greater than maxlife
     */
     public void heal(int heal){
-        heal = dice.roll()*2;
+        /*heal = dice.roll()*2;
         System.out.print(heal*2 + "HP");
+        */
+        int healed = this.currentLife + heal;
         
-        //int healed = this.currentLife + heal;
-        
-        if((this.currentLife += heal) > maxLife){
+        if(heal > maxLife){
             System.out.println(maxLife);
         }else
-            this.currentLife += heal;
+            System.out.println(healed);
     }
     
     /* returns name
