@@ -1,43 +1,53 @@
-
 package rpg;
 
 public class TestCharacter {
+    
     public TestCharacter(){
-    Character kathy = new Character("Kathy", 5, 4, 3);
-        Character piolo = new Character("Piolo", 2, 1 ,6);
+        Dice d = new Dice();
+        Character kathy = new Character("Kathy", d.roll(), d.roll(), d.roll());
+        Character rian = new Character("Rian", d.roll(), d.roll(), d.roll());
         
-        for(int i = 1; i <= 100; i++){
+        for(int i = 1; i <= 99; i++){
             System.out.println("ROUND " + i);
             
+            
             System.out.println(kathy.getName() + ": " + kathy.getCurrentLife());
-            System.out.println(piolo.getName() + ": " + piolo.getCurrentLife());
+            System.out.println(rian.getName() + ": " + rian.getCurrentLife());
             
-            int kAttack = kathy.attack(), pAttack = piolo.attack();
+            int kAttack = kathy.attack(), rAttack = rian.attack();
             
-            System.out.println(kathy.getName() + " attacks " + piolo.getName() + " for " + kAttack);
-            System.out.println(piolo.getName() + " attacks " + kathy.getName() + " for " + pAttack);
+            System.out.println(kathy.getName() + " attacks " + rian.getName() + " for " + kAttack);
+            System.out.println(rian.getName() + " attacks " + kathy.getName() + " for " + rAttack);
             
-            piolo.wound(kAttack);
-            kathy.wound(pAttack);
-            
-            /*System.out.print("Kathy was healed for");
-            kathy.heal(1);
+            rian.wound(kAttack);
+            kathy.wound(rAttack);
+          
             System.out.println(" ");
-            
-            System.out.print("Piolo was healed for");
-            piolo.heal(1);
-            System.out.println("\n");
-            */           
-            
-            System.out.println(" ");
-            if(kathy.getCurrentLife() <= 0){
-                System.out.println(piolo.getName() + " wins!");
+            if((kathy.getCurrentLife() <= 0) && (rian.getCurrentLife() > 0)){
+                
+            System.out.print("\nFinal HP of " + kathy.getName() + " is: " + kathy.getCurrentLife());
+            System.out.print("\nFinal HP of " + rian.getName() + " is: " + rian.getCurrentLife());
+                System.out.println(" ");
+                System.out.println(rian.getName() + " wins!" );
                 break;
             }
-            if (piolo.getCurrentLife() <= 0){
+            else if ((rian.getCurrentLife() <= 0) && (kathy.getCurrentLife() > 0)){
+                
+            System.out.print("\nFinal HP of " + kathy.getName() + " is: " + kathy.getCurrentLife());
+            System.out.print("\nFinal HP of " + rian.getName() + " is: " + rian.getCurrentLife());
+            System.out.println(" ");
                 System.out.println(kathy.getName() + " wins!");
+                break;
+            }
+            else if((kathy.getCurrentLife()<=0) && (rian.getCurrentLife()<=0) ){
+                System.out.print("\nFinal HP of " + kathy.getName() + " is: " + kathy.getCurrentLife());
+                System.out.print("\nFinal HP of " + rian.getName() + " is: " + rian.getCurrentLife());
+                System.out.println(" ");
+                System.out.println("DRAW! DEDS LAHAT");
                 break;
             }
         }
     }
+        
 }
+ 
