@@ -7,7 +7,7 @@ public class TestCharacter {
         Character kathy = new Character("Kathy", d.roll(), d.roll(), d.roll());
         Character rian = new Character("Rian", d.roll(), d.roll(), d.roll());
         
-        for(int i = 1; i <= 99; i++){
+        for(int i = 1; i <= 3; i++){
             System.out.println("ROUND " + i);
             
             
