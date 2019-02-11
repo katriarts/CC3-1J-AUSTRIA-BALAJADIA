@@ -50,18 +50,12 @@ public class CharacterDuel {
                 break;
             }
             else if (w.getCurrentLife()== 0 && m.getCurrentLife()== 0){                 
-                    //Math.max(0, w.getCurrentLife() );  
-                    //Math.max(0, m.getCurrentLife() );
                     System.out.println("IZ A TIE BOIII!!! :3");
-                    //System.exit(0);
                     break;
-                    
-                
             }
             else if (Math.max(0, m.getCurrentLife()) <= 0)
                 if(Math.max(0, w.getCurrentLife()) <= 0){
                 System.out.println("IZ A TIE BOIII!!! :3");
-                //System.exit(0);
                 break;
             }
             
