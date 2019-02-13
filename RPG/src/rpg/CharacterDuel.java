@@ -18,7 +18,7 @@ public class CharacterDuel {
             System.out.println(" ");
             System.out.println(w.getName() + " casts lightning bolt to attack " +
                                             m.getName() + " for: " + Battack);
-            System.out.println(m.getName() + " casts sorcery to attack " +
+            System.out.println(m.getName() + " casts bash to attack " +
                                             w.getName() + " for: " + Aattack);
             w.wound(Aattack);
             m.wound(Battack);
@@ -49,15 +49,11 @@ public class CharacterDuel {
             System.out.println(w.getName() + " WINS!!!");
                 break;
             }
-            else if (w.getCurrentLife()== 0 && m.getCurrentLife()== 0){                 
+            else if ((Math.max(0, w.getCurrentLife())== 0) && (Math.max(0, m.getCurrentLife())== 0)){                 
                     System.out.println("IZ A TIE BOIII!!! :3");
                     break;
             }
-            else if (Math.max(0, m.getCurrentLife()) <= 0)
-                if(Math.max(0, w.getCurrentLife()) <= 0){
-                System.out.println("IZ A TIE BOIII!!! :3");
-                break;
-            }
+            
             
             
         }
