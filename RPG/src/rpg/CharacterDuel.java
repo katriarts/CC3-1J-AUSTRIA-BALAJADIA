@@ -20,8 +20,8 @@ public class CharacterDuel {
                                             m.getName() + " for: " + Battack);
             System.out.println(m.getName() + " casts sorcery to attack " +
                                             w.getName() + " for: " + Aattack);
-            w.wound(Battack);
-            m.wound(Aattack);
+            w.wound(Aattack);
+            m.wound(Battack);
             
             if(d.roll() < 3){
                //w.castHeal();
