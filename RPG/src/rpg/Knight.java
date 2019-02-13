@@ -7,7 +7,7 @@ public class Knight extends Character{
         super(n, s, d, i);
     }
     public int castBash(){
-        return dice.roll()*super.getDexterity();
+        return dice.roll()*super.getStrength();
     }
 
 }
