@@ -1,7 +1,12 @@
 
 package rpg;
 
-public class Character {
+/* The character class models a character for a roleplaying game.
+A character has a name and 3 stats; STRENGTH, DEXTERITY, and INTELLIGENCE, 
+as well as maximum allowed life points and the current value.
+*/
+
+public abstract class Character {
     //static variables
     
     private String name;
@@ -37,9 +42,9 @@ public class Character {
     /* returns a random die roll using the roll method
     in the Dice.java, modified by the character's strength
     */
-    public int attack(){
-        return dice.roll()*this.strength;   
-    }
+    public abstract int attack();
+    //    return dice.roll()*this.strength;   
+    
     
     
     //decreases currentlife by the damage parameter
@@ -51,16 +56,15 @@ public class Character {
     currentlife cannot be greater than maxlife
     */
     public void heal(int heal){
-        /*heal = dice.roll()*2;
-        System.out.print(heal*2 + "HP");
-        */
-        int healed = this.currentLife + heal;
+        heal = dice.roll()*2;
+        //System.out.print(heal*2 + " HP");
         
-        if(heal > maxLife){
-            System.out.println(maxLife);
+        if(heal >= maxLife){
+            this.currentLife = maxLife;
         }else
-            System.out.println(healed);
+            this.currentLife += heal;
     }
+    
     
     /* returns name
     */
@@ -115,5 +119,8 @@ public class Character {
         this.maxLife = maxLife;
     }
     
-    
-}
+        
+}   
+
+
+

@@ -1,5 +1,6 @@
 
 package rpg;
+//the dice class models rolling a regular 6-sided die
 import java.util.Random;
 
 public class Dice {
@@ -9,6 +10,7 @@ public class Dice {
     private Random r;
     //instantiate the object r
     public Dice(){
+        
        this.r = new Random();
         
     }
@@ -16,6 +18,4 @@ public class Dice {
         int roll = r.nextInt(6)+1;
         return roll;
     }
-
-
 }

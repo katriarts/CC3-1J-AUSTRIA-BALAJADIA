@@ -7,7 +7,7 @@ adding 2 new instance variables:
 as well as the: = castLightningBolt() & castHeal() methods
             w/c represent casting magic spells.
 */
-public class Wizard extends Character{
+public class Wizard extends Character implements Weapons, Armor{
     //instance variables
     private int maxMagic;
     private int currentMagic;
@@ -57,7 +57,7 @@ public class Wizard extends Character{
         } return 3;
     }
     
-    @Override
+    @Override   //implement the attack() method~~
     public int attack(){
         return dice.roll()*5;   
     }
@@ -76,6 +76,25 @@ public class Wizard extends Character{
     }
     public void setCurrentMagic(int currentMagic){
         this.currentMagic = currentMagic;
+    }
+
+    @Override   
+    public int useWeapon() {
+        /*
+        useWeapon() method will return a dice woll modified by strength.
+        This will DECREASE the CURRENTLIFE of the opponent.
+        */
+        return dice.roll()*super.getStrength();
+    }
+
+    @Override
+    public int useArmor() {
+        /*  !?!?!?!?!?!?!?!?!?!?!?!?!?
+        useArmor() method will return a dice roll modified by strength
+        This will INVOKE the HEAL() method.
+        */
+        super.heal(maxMagic);
+        return dice.roll()*super.getStrength();
     }
    
 }

@@ -1,11 +1,21 @@
+
 package rpg;
 
 public class TestCharacter {
-    
-    public TestCharacter(){
+    public static void main(String[] args){
         Dice d = new Dice();
-        Character kathy = new Character("Kathy", d.roll(), d.roll(), d.roll());
-        Character rian = new Character("Rian", d.roll(), d.roll(), d.roll());
+        Character kathy = new Character("Kathy", d.roll(), d.roll(), d.roll()) {
+            @Override
+            public int attack() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
+        Character rian = new Character("Rian", d.roll(), d.roll(), d.roll()) {
+            @Override
+            public int attack() {
+                throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+            }
+        };
         
         for(int i = 1; i <= 3; i++){
             System.out.println("ROUND " + i);
@@ -14,7 +24,8 @@ public class TestCharacter {
             System.out.println(kathy.getName() + ": " + kathy.getCurrentLife());
             System.out.println(rian.getName() + ": " + rian.getCurrentLife());
             
-            int kAttack = kathy.attack(), rAttack = rian.attack();
+            int kAttack = kathy.attack();
+            int rAttack = rian.attack();
             
             System.out.println(kathy.getName() + " attacks " + rian.getName() + " for " + kAttack);
             System.out.println(rian.getName() + " attacks " + kathy.getName() + " for " + rAttack);
@@ -47,7 +58,6 @@ public class TestCharacter {
                 break;
             }
         }
-    }
         
+    }
 }
- 

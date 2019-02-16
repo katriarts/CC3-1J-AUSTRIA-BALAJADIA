@@ -3,56 +3,67 @@ public class CharacterDuel {
     public static void main(String[] args) {
         Dice d = new Dice();
         Wizard w = new Wizard("Wizard", d.roll(), d.roll(), d.roll());
-        Knight m = new Knight("Knight", d.roll(), d.roll(), d.roll());
-        for(int i = 1; w.getCurrentLife() >= 0 && m.getCurrentLife() >=0 ; i++){
+        Knight k = new Knight("Knight", d.roll(), d.roll(), d.roll());
+        for(int i = 1; w.getCurrentLife() >= 0 && k.getCurrentLife() >=0 ; i++){
             System.out.println("ROUND NUMBER " + i + ": ");
-           //code for duel
+            
            System.out.println(w.getName() + " HP : " + w.getCurrentLife());
-           System.out.println(m.getName() + " HP : " + m.getCurrentLife());
+           System.out.println(k.getName() + " HP : " + k.getCurrentLife());
+           System.out.println(" ");
             
-           //UwU~
+            //wizard    OwO
+            int Wattack = w.castLightningBolt();
+            int wand = w.useWeapon();
+            int cloak = w.useArmor();
+            
+            //knight    OwO
+            int Kattack = k.castBash();
+            int sword = k.useWeapon();
+            int shield = k.useArmor();
+            
             System.out.println(" ");
-           
-            int Battack = w.castLightningBolt();
-            int Aattack = m.castBash();
-            System.out.println(" ");
             
-            
+//--------------------------------------
+//--------------------------------------
             if((d.roll() < 3) && (i != 1)){
-               //w.castHeal();
-               System.out.println(" " +w.getName() + " was healed for: " + w.castHeal());
+                System.out.println(" " +w.getName() + " healed himself for: " + w.castHeal());
             }
-           else if(d.roll() > 3){
-               System.out.println(w.getName() + " casts lightning bolt to attack " +
-                                            m.getName() + " for: " + Battack);
-               m.wound(Battack);
-           }
-           else if(d.roll() == 3){
-               //w.attack();
-               System.out.println(w.getName() + " attacks " +  m.getName()+ " for: "+ Battack);
-               //w.wound(Battack);
-           }
-            
-            if(m.getCurrentLife() > 0){
-                   System.out.println(m.getName() + " bashed " +
-                                         w.getName() + " for: " + Aattack);
-               w.wound(Aattack);
-               }
-            
-                System.out.println(" ");
-            //System.out.println("HP of " + w.getName() + ": " + w.getCurrentLife());
-            //System.out.println("HP of " + m.getName() + ": " + m.getCurrentLife());
-            //System.out.println(" ");
-            
-            if (w.getCurrentLife()<= 0 && m.getCurrentLife()>0){
-               System.out.println(m.getName() + " WINS WITH REMAINING " + m.getCurrentLife()+" HP!!!" );
+            else if(d.roll() > 3 || w.getCurrentLife() >= 15){
+                System.out.println(w.getName() + " casts lightning bolt to " + k.getName() + " for: " + Wattack);
+                k.wound(Wattack);
+            }
+            else if(d.roll() == 3 || (w.getCurrentLife() > 5 && w.getCurrentLife() < 15)){
+                System.out.println(w.getName() + " uses his wand to attack " +  k.getName() + " for: " + wand);
+                k.wound(wand);
+            }
+            else if(w.getCurrentLife() <= 5){
+                System.out.println(w.getName() + " equiped himself with a cloak as a defense mechanism from " + k.getName() + " for: " + cloak );
+            }
+//--------------------------------------
+//--------------------------------------
+            if(k.getCurrentLife() <= 5){
+                System.out.println(k.getName() + " equiped himself with a shield as a defense mechanism from " + w.getName() + " for: " + shield);
+            }
+            else if(k.getCurrentLife() > 5 && k.getCurrentLife() <15){
+                System.out.println(k.getName() + " uses his sword to attack " + w.getName() + " for: " + sword);
+                w.wound(sword);
+            }
+            else if(k.getCurrentLife() >= 15){
+                System.out.println(k.getName() + " bashed " + w.getName() + " for: " + Kattack);
+                w.wound(Kattack);
+            }
+//--------------------------------------
+//--------------------------------------
+            System.out.println(" ");
+            if (w.getCurrentLife()<= 0 && k.getCurrentLife()>0){
+               System.out.println(k.getName() + " WINS WITH REMAINING " + k.getCurrentLife()+" HP!!!" );
                break;
             }
-            else if (w.getCurrentLife() >= 0 && m.getCurrentLife() < 0){
+            else if (w.getCurrentLife() >= 0 && k.getCurrentLife() < 0){
             System.out.println(w.getName() + " WINS WITH REMAINING " + w.getCurrentLife()+" HP!!!");
                 break;
             }        
-            else if ((Math.max(0, w.getCurrentLife()) == 0) && (Math.max(0, m.getCurrentLife()) == 0)){
+            else if ((Math.max(0, w.getCurrentLife()) == 0) && (Math.max(0, k.getCurrentLife()) == 0)){
                 System.out.println("\nDraw\n");
                 break;
             }
