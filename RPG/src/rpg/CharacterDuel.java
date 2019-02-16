@@ -48,7 +48,7 @@ public class CharacterDuel {
                 w.wound(sword);
             }
             
-            if(k.getCurrentLife() <= 5){
+            if(k.getCurrentLife() > 0 && k.getCurrentLife() <= 5){
                 System.out.println(k.getName() + " equipped himself with a shield as a defense mechanism from " + w.getName() + " for: " + shield);
             }
             else if(k.getCurrentLife() >= 15){
