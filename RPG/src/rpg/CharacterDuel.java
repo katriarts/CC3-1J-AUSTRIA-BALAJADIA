@@ -28,30 +28,33 @@ public class CharacterDuel {
             if((d.roll() < 3) && (i != 1)){
                 System.out.println(" " +w.getName() + " healed himself for: " + w.castHeal());
             }
-            else if(d.roll() > 3 || w.getCurrentLife() >= 15){
+            else if(d.roll() > 3 || (w.getCurrentLife() >= 15 && k.getCurrentLife() <=5)){
                 System.out.println(w.getName() + " casts lightning bolt to " + k.getName() + " for: " + Wattack);
                 k.wound(Wattack);
+                System.out.println(k.getName() + " equipped himself with a shield as a defense mechanism from " + w.getName() + " for: " + shield);
             }
             else if(d.roll() == 3 || (w.getCurrentLife() > 5 && w.getCurrentLife() < 15)){
                 System.out.println(w.getName() + " uses his wand to attack " +  k.getName() + " for: " + wand);
                 k.wound(wand);
             }
-            else if(w.getCurrentLife() <= 5){
-                System.out.println(w.getName() + " equiped himself with a cloak as a defense mechanism from " + k.getName() + " for: " + cloak );
+            else if(w.getCurrentLife() <= 5 && k.getCurrentLife() >= 15){
+                System.out.println(k.getName() + " bashed " + w.getName() + " for: " + Kattack);
+                w.wound(Kattack);
+                System.out.println(w.getName() + " equipped himself with a cloak as a defense mechanism from " + k.getName() + " for: " + cloak );
             }
-//--------------------------------------
-//--------------------------------------
-            if(k.getCurrentLife() <= 5){
-                System.out.println(k.getName() + " equiped himself with a shield as a defense mechanism from " + w.getName() + " for: " + shield);
-            }
+            
             else if(k.getCurrentLife() > 5 && k.getCurrentLife() <15){
                 System.out.println(k.getName() + " uses his sword to attack " + w.getName() + " for: " + sword);
                 w.wound(sword);
             }
+            /*
+            if(k.getCurrentLife() <= 5){
+                System.out.println(k.getName() + " equipped himself with a shield as a defense mechanism from " + w.getName() + " for: " + shield);
+            }
             else if(k.getCurrentLife() >= 15){
                 System.out.println(k.getName() + " bashed " + w.getName() + " for: " + Kattack);
                 w.wound(Kattack);
-            }
+            }*/
 //--------------------------------------
 //--------------------------------------
             System.out.println(" ");
