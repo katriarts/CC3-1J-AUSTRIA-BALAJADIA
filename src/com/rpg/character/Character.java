@@ -4,8 +4,8 @@ package com.rpg.character;
 import com.rpg.item.Dice;
 /**
  *  The character class models a character for a roleplaying game.
-A character has a name and 3 stats; STRENGTH, DEXTERITY, and INTELLIGENCE, 
-as well as maximum allowed life points and the current value.
+ * A character has a name and 3 stats; STRENGTH, DEXTERITY, and INTELLIGENCE, 
+ * as well as maximum allowed life points and the current value.
  *
  */
 /*
