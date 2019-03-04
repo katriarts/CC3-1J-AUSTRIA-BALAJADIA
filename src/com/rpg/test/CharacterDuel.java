@@ -4,9 +4,7 @@ import com.rpg.item.Dice;
 import com.rpg.character.Knight;
 import com.rpg.character.Wizard;
 
-/**
-    *
-    */
+
 public class CharacterDuel {
     public static void main(String[] args) {
         Dice d = new Dice();
